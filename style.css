@@ -2,7 +2,6 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-@import url(http://fonts.googleapis.com/css?family=Exo+2:400,700&subset=latin,cyrillic);
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -51,7 +50,8 @@ h1{
 	text-align: center;
 	margin: 40px 0 15px;
 	font-size: 2.5em;
-	font-family: 'Exo 2', sans-serif;
+	font-family: Arial, sans-serif;
+	font-weight: 700;
 }
 .description{
 	text-align: center;
@@ -103,4 +103,30 @@ select{
 	border: 1px solid #B9C99D;
 	box-shadow: 0px 1px 5px #BEBCBC;
 	margin-top: 2px;
+}
+
+table{
+	border: 1px solid #d3d3d3;
+	border-radius: 5px;
+	box-shadow: 0px 1px 5px #BEBCBC;
+	margin:15px auto 10px; 
+}
+tr,td{
+	border: 1px solid #d3d3d3;
+	padding: 10px;
+}
+.period{
+	padding-right: 50px;
+	background: #f0f0f0;
+}
+.value{
+	padding-right: 100px;
+}
+#result{
+	font-family: Tahoma, Arial;
+	width: 340px;
+	margin:40px auto 10px; 
+}
+#result p{
+	text-align: center;
 }

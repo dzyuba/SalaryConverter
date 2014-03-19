@@ -1,3 +1,5 @@
+<?php require "calculator.php" ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -24,25 +26,53 @@
 </div>
 
 <div id="result">
-	<table>
-		<tr>
-			<td>В час:</td>
-			<td> 0 </td>
-		</tr>
-		<tr>
-			<td>В день:</td>
-			<td> 0 </td>
-		</tr>
-		<tr>
-			<td>В месяц:</td>
-			<td> 0 </td>
-		</tr>
-		<tr>
-			<td>В год:</td>
-			<td> 0 </td>
-		</tr>
-	</table>
+	<?php 
+		$print = new Printi();
+		$values = new Calculator();
+
+		if( !empty($value) ){
+			echo "<p>" . $value . " гривен в " . $periods[$per] . " примерно составляют:</p>";
+	?>
+
+		<table>
+	<?php
+			if ($per == "hour"){
+				 $print->daylySalary($values->getDaylySalary($value, $per));
+				 $print->monthlySalary($m = $values->getMonthlySalary($value, $per));
+				 $print->yearlySalary($values->getYearlySalary($m, $per));
+			}
+			elseif ($per == "day"){
+				 $print->hourlySalary($values->getHourlySalary($value, $per));
+				 $print->monthlySalary($m = $values->getMonthlySalary($value, $per));
+				 $print->yearlySalary($values->getYearlySalary($m, $per));
+			}
+			elseif ($per == "month"){
+				 $print->hourlySalary($values->getHourlySalary($value, $per));
+				 $print->daylySalary($values->getDaylySalary($value, $per));
+				 $print->yearlySalary($values->getYearlySalary($value, $per));
+			}
+			elseif ($per == "year"){
+				 $print->hourlySalary($values->getHourlySalary($value, $per));
+				 $print->daylySalary($values->getDaylySalary($value, $per));
+				 $print->monthlySalary($values->getMonthlySalary($value, $per));
+			}
+	?>
+		</table>
+
+	<?php 
+		}
+		else {
+			echo "<p>" . "25 гривен в час" . " примерно составляют:</p>";
+	?>
+		<table>
+			<?php $print->daylySalary($values->getDaylySalary(25, $per)); ?>
+			<?php $print->monthlySalary($values->getMonthlySalary(25, $per)); ?>
+			<?php $print->yearlySalary($values->getYearlySalary(4800, $per)); ?>
+		</table>
+	<?php } ?>
 </div>
+
+
 
 </body>
 </html>
