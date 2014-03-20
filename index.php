@@ -69,7 +69,8 @@
 			<?php $print->monthlySalary($values->getMonthlySalary(25, $per)); ?>
 			<?php $print->yearlySalary($values->getYearlySalary(4800, $per)); ?>
 		</table>
-	<?php } ?>
+	<?php 
+	} ?>
 </div>
 
 

@@ -10,19 +10,18 @@ $periods = array(
 	"year" => "год"
 	);
 
-
 class Printi{
 	function hourlySalary($hourlySalary){
-		echo "<td class=\"period\">В час:</td><td>" . (int)$hourlySalary . "</td></tr>";
+		echo "<td class=\"period\">В час:</td><td>" . round($hourlySalary) . "</td></tr>";
 	}
 	function daylySalary($daylySalary){
-		echo "<td class=\"period\">В день:</td><td>" . (int)$daylySalary . "</td></tr>";
+		echo "<td class=\"period\">В день:</td><td>" . round($daylySalary) . "</td></tr>";
 	}
 	function monthlySalary($monthlySalary){
-		echo "<td class=\"period\">В месяц:</td><td>" . (int)$monthlySalary . "</td></tr>";
+		echo "<td class=\"period\">В месяц:</td><td>" . round($monthlySalary) . "</td></tr>";
 	}
 	function yearlySalary($yearlySalary){
-		echo "<td class=\"period\">В год:</td><td>" . (int)$yearlySalary . "</td></tr>";
+		echo "<td class=\"period\">В год:</td><td>" . round($yearlySalary) . "</td></tr>";
 	}
 }
 
@@ -48,7 +47,6 @@ class Calculator{
 		return $monthlySalary * 12;
 	}
 }
-
 
 
 ?>
