@@ -7,4 +7,4 @@ The online Wage and Salary Conversion Calculator is used to convert a wage state
 
 This calculator can be helpful if you want to compare your present wage to a wage being offered by a prospective employer where each wage is stated in a different periodic term.
 
-demo: http://vh37343.eurodir.ru/index.php
+demo: http://vh37343.eurodir.ru
