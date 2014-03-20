@@ -3,6 +3,14 @@
 $value = $_GET['value'];
 $per = $_GET['period'];
 
+if(empty($value)){
+	$value = 25;
+}
+
+if(empty($per)){
+	$per = "hour";
+}
+
 $periods = array(
 	"hour" => "час",
 	"day" => "день",
@@ -43,9 +51,30 @@ class Calculator{
 		return ($hourlySalary * 8) * 24;
 	}
 	function getYearlySalary($monthlySalary, $per){
-
+		if ($per == "day") return $monthlySalary * 24 *12;
 		return $monthlySalary * 12;
 	}
+}
+
+class Validator{
+	function validatePeriod($per){
+		$arr = array("hour", "day", "month", "year");
+		if (!in_array($per, $arr)) {
+		    return false; // если период не верный
+		}
+		return true;
+	}
+	function getError(){
+			echo "<p style=\"text-align:center;\">Указан некорректный период времени или значение.</p>";
+	}
+
+	function validateValue($val){
+		if($val <= 0 || is_string($val)){
+			return true; // если user ввел недопустимые данные
+		}
+		return false;
+	}
+
 }
 
 

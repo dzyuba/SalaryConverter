@@ -30,8 +30,13 @@
 		$print = new Printi();
 		$values = new Calculator();
 
-		if( !empty($value) ){
-			echo "<p>" . $value . " гривен в " . $periods[$per] . " примерно составляют:</p>";
+		$validate = new Validator();
+		if( $validate->validatePeriod($per) != true){
+			$validate->getError();
+		}
+		else{
+			if( !empty($value) ){
+				echo "<p>" . $value . " гривен в " . $periods[$per] . " примерно составляют:</p>";
 	?>
 
 		<table>
@@ -61,7 +66,7 @@
 
 	<?php 
 		}
-		else {
+		else { // показываем когда user еще ничего не вводил
 			echo "<p>" . "25 гривен в час" . " примерно составляют:</p>";
 	?>
 		<table>
@@ -70,7 +75,10 @@
 			<?php $print->yearlySalary($values->getYearlySalary(4800, $per)); ?>
 		</table>
 	<?php 
-	} ?>
+		}
+	}
+ ?>
+ <p id="tests"><a href="calculator_test.php">Unit тесты</a></p>
 </div>
 
 
